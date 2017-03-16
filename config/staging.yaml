@@ -1,0 +1,9 @@
+server:
+    port: 8080
+    hostname: localhost
+database:
+    host: localhost
+    port: 8914
+    username: larry.eliemenye
+    password: some_secret
+    name: playcraft_db
