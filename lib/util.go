@@ -11,7 +11,7 @@ func checkError(e error){
 	}
 }
 
-func loadFile(path string){
+func loadFile(path string) []byte {
 	data, err := ioutil.ReadFile(path)
 	checkError(err)
 
@@ -21,5 +21,5 @@ func loadFile(path string){
 
 
 func GetConfig(){
-	return loadFile("/config.yaml")
+	loadFile("/config/local.yaml")
 }

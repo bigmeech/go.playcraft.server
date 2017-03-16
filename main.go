@@ -1,9 +1,11 @@
 package main
 
 import (
-	"github.com/op/go-logging"
-	"github.com/go-zoo/bone"
-	"net/http"
+	logging "github.com/op/go-logging"
+	bone "github.com/go-zoo/bone"
+	http "net/http"
+	flag "flag"
+	playcraft "github.com/bigmeech/go.playcraft.server/lib"
 )
 
 var log = logging.MustGetLogger("playcraft");
@@ -23,8 +25,14 @@ func main(){
 	mux.Get("/api", http.HandlerFunc(defaultHandler))
 	mux.Get("/api/team/:id", http.HandlerFunc(TeamHandler))
 
+	DB_USERNAME := flag.String("db_username", "default_username", "Username to use for database login")
+	DB_PASSWORD := flag.String("db_password", "default_password", "Password to use for database login")
+	flag.Parse();
+
+	log.Info(*DB_USERNAME, *DB_PASSWORD)
+
 	//loading config
-	util.LoadConfig()
+	playcraft.GetConfig()
 
 	// starting api server
 	log.Debug("Starting go.playcraft.server at 8080");
