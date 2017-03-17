@@ -24,8 +24,8 @@ func main(){
 
 	configRoutes(mux)
 
-	DB_USERNAME := flag.String("db_username", "default_username", "Username to use for database login")
-	DB_PASSWORD := flag.String("db_password", "default_password", "Password to use for database login")
+	DB_USERNAME := flag.String("db_username", "", "Username to use for database login")
+	DB_PASSWORD := flag.String("db_password", "", "Password to use for database login")
 	flag.Parse();
 
 	log.Info(*DB_USERNAME, *DB_PASSWORD)
